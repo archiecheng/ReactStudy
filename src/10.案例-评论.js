@@ -99,28 +99,6 @@ const App = () => {
       setCommentList(_.orderBy(commentList, 'ctime', 'desc'))
     }
   }
-  // 发表评论
-  const [content, setContent] = useState('')
-  const handlePublish = () => {
-    setCommentList([
-      ...commentList,
-      {
-        // 评论id
-        rpid: 100,
-        // 用户信息
-        user: {
-          uid: "13258165",
-          avatar: "",
-          uname: "周杰伦",
-        },
-        // 评论内容
-        content: content,
-        // 评论时间
-        ctime: "10-18 08:15",
-        like: 126,
-      }
-    ])
-  }
   return (
     <div className="app">
       {/* 导航 Tab */}
@@ -153,12 +131,10 @@ const App = () => {
             <textarea
               className="reply-box-textarea"
               placeholder="发一条友善的评论"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
             />
             {/* 发布按钮 */}
             <div className="reply-box-send">
-              <div className="send-text" onClick={handlePublish}>发布</div>
+              <div className="send-text">发布</div>
             </div>
           </div>
         </div>
